@@ -1,0 +1,14 @@
+CC=gcc
+CFLAGS = -Wall
+
+all: transmitter receiver
+
+transmitter: DataLink.h AppLayer.h transmitter.c
+	$(CC) $(CFLAGS) transmitter.c AppLayer.c DataLink.c -o transmitter
+
+receiver: DataLink.h AppLayer.h receiver.c
+	$(CC) $(CFLAGS) receiver.c AppLayer.c DataLink.c -o receiver
+	
+clean:
+	rm -f transmitter
+	rm -f receiver
